@@ -43,22 +43,13 @@ class CustomIndexDashboard(Dashboard):
         
         self.children.append(
             modules.ModelList(
-                title = u'Страницы',
+                title = u'Страницы и Контент',
                 models=(
                     'pages.models.Page',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Свадьбы',
-                models=(
-                    'wedding.models.Country',
-                    'wedding.models.Place',
-                    'wedding.models.PlaceEventType',
-                    'wedding.models.PlaceType',
-                    'wedding.models.PlaceSeason',
+                    'gallery.models.Photo',
+                    'news.models.Article',
+                    'review.models.Review',
+                    'slideshow.models.Slider',
                 ),
             )
         )
@@ -66,90 +57,14 @@ class CustomIndexDashboard(Dashboard):
         
         self.children.append(
             modules.ModelList(
-                title = u'Блог',
-                models=(
-                    'blog.models.Category',
-                    'blog.models.Article',
-                ),
-            )
-        )
-        
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Заказы',
+                title = u'Заявки и Подписки',
                 models=(
                     'order.models.Order',
-                    'order.models.OrderServices',
+                    'subscribe.models.Subscribe',
                 ),
             )
         )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Обратная связь',
-                models=(
-                    'feedback.models.Feedback',
-                ),
-            )
-        )
-        
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Галерея',
-                models=(
-                    'gallery.models.Category',
-                    'gallery.models.Photo',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Идеи',
-                models=(
-                    'ideas.models.Article',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Новости',
-                models=(
-                    'news.models.Article',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Отзывы',
-                models=(
-                    'review.models.Review',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Слайдшоу',
-                models=(
-                    'slideshow.models.Slider',
-                    'banner.models.Banner',
-                ),
-            )
-        )
-        
-        self.children.append(
-            modules.ModelList(
-                title = u'Команда',
-                models=(
-                    'team.models.Team',
-                ),
-            )
-        )
+    
         
         # append a recent actions module
         self.children.append(modules.RecentActions(_('Recent Actions'), 5))
