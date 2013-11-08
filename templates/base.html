@@ -1,0 +1,27 @@
+{% extends 'base_wrap.html' %}
+
+{% block wrapper %}
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="sidebar__nav">
+                <li><a href="/nashi-trenera/">Наши тренера</a></li>
+                <li><a href="/raspisanie/">Расписание </a></li>
+                <li><a href="/klubnaya-karta/">Клубная карта</a></li>
+                <li><a href="/spetsialnyie-predlozheniya/">Специальное предложение</a></li>
+            </ul>
+            
+            {% include 'right_side.html' %}
+        </aside>
+        
+        <div class="content">
+            <div class="breadcrumbs">
+                <a href="/">Главная</a>
+                {% block breadcrumbs %}
+                {% endblock %}
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+{% endblock %}

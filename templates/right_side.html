@@ -1,0 +1,40 @@
+<section class="sidebar__box">
+    <h4>Подписаться на рассылку<br/>
+        «5 ГЛАВНЫХ ОШИБОК <br/>ПРИ ПОХУДЕНИИ»: </h4>
+
+    <form action="">
+        <span class="back"> <input type="text" placeholder="Ваш email" name="user-email"/>  </span>
+        <span class="back form-btn btn-green"> <input type="submit" value="Отправить"/> </span>
+    </form>
+
+</section>
+
+<section class="sidebar__box">
+    <h5>Запишитесь на пробную тренировку и получите <span class="text_red">диагностику организма <br/>
+        в подарок!</span></h5>
+    <span class="back form-btn btn-yellow"> <input type="submit" id="get" value="Получить"/> </span>
+</section>
+
+<section class="sidebar__info">
+    <img src="/static/img/info.jpg"/>
+    <h4 class="sidebar__info__title"><a href="#">Название комплекса</a></h4>
+
+    <div class="sidebar__info__text"> Описание комплекса</div>
+</section>
+
+<section class="sidebar__review__wrap">
+    <div class="sidebar__review__title"> Отзывы</div>
+    
+    {% for r in reviews %}
+        <div class="sidebar__review">
+            <div class="sidebar__review__name"> {{ r.name }}, {{ r.age }}</div>
+            <div class="sidebar__review__text"> “{{ r.text }}” </div>
+        </div>
+    {% endfor %}
+    
+    <div class="sidebar__review__link"><a href="#" class="sidebar__review__more"> </a></div>
+
+</section>
+
+<section class="sidebar__like-boxes">
+</section>

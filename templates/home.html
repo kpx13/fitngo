@@ -1,0 +1,36 @@
+{% extends 'base_wrap.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block wrapper %}
+    <div class="slider__wrap">
+        <div class="slider">
+            {% for s in slider %}
+                <div class="slider__i {% if forloop.first %}active{% endif %}" style='background: url(/media/{{ s.image }}) no-repeat 0 0;'>
+                    {{ s.content|safe }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="slider__next"></div>
+        <div class="slider__prev"></div>
+    </div>
+    
+    <div class="container">
+        <aside class="sidebar">
+            {% include 'right_side.html' %}
+        </aside>
+        
+        <div class="content">
+            <h1>Фитнес студия FITNGO</h1>
+
+            {{ content|safe }}
+
+            <form action="">
+                <span class="back"> <input type="text" placeholder="Ваше имя" name="user-name"/>  </span>
+                <span class="back"> <input type="text" placeholder="Ваш телефон" name="user-phone"/> </span>
+                <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

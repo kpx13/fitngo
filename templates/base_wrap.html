@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FitNGo! | {% block title %} {% endblock %}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/css/style.css"/>
+        <link rel="stylesheet" href="/static/css/colorbox.css"/>
+        <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/script.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.colorbox-min.js"></script>
+        {% block head %}
+        {% endblock %}
+    </head>
+    
+    <body>
+        <div class="layout">
+            <div class="popup__layout"></div>
+            <div class="popup popup-sign">
+                <span class="popup___close"></span>
+                <div class="popup__title"> Записаться на тренировку
+                </div>
+                <form action="">
+                    <span class="back"> <input type="text" placeholder="Ваше имя" name="user-name"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="user-phone"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш email" name="user-email"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Дата и время тренировки" name="user-time"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Номер карты" name="user-card"/>  </span>
+                    <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
+                </form>
+            </div>
+            
+            <div class="popup popup-get">
+                <span class="popup___close"></span>
+                <div class="popup-get__title">
+                <h5>Запишитесь на пробную тренировку и получите <span class="text_red">диагностику организма <br/>
+                                    в подарок!</span></h5>
+                </div>
+                <form action="">
+                    <span class="back"> <input type="text" placeholder="Ваше имя" name="user-name"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="user-phone"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш email" name="user-email"/>  </span>
+                    <span class="back"> <input type="text" placeholder="Дата и время тренировки" name="user-time"/>  </span>
+                    <span class="back form-btn btn-yellow"> <input type="submit" value="Получить"/> </span>
+                </form>
+
+            </div>
+            
+            <div class="wrapper">
+                <header>
+                    <nav class="g-nav">
+                        <ul>
+                            <li><a href="/kak-eto-rabotaet/">Как это работает? </a></li>
+                            <li><a href="#">Мои цели </a>
+                                <ul>
+                                    <li><a href="/pohudet/">Похудеть </a></li>
+                                    <li><a href="/uvelichit-myishtsyi/"> Увеличить мышцы</a></li>
+                                    <li><a href="/izbavitsya-ot-boli-v-spine/"> Избавиться от боли в спине </a></li>
+                                    <li><a href="/vosstanovitsya-posle-travm/"> Восстановиться после травм </a></li>
+                                    <li><a href="/kompleksnyie-programmyi/"> Комплексные программы</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/tehnologii/">Технологии</a></li>
+                            <li><a href="/o-studii/">О студии</a></li>
+                            <li><a href="/kontaktyi/">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header__contacts">
+                        <span class="header__contacts__phone">   +7 (496) 586-52-63</span>
+                        <a class="btn__grey back" href="#" id="sign">Записаться на
+                            тренировку</a>
+                    </div>
+                    <a class="homelink" href="/"></a>
+                </header>
+                
+                {% block wrapper %}
+                {% endblock %}
+                
+                <footer>
+                    <div class="footer__soc">
+                        <div class="footer__soc__title">Будь в курсе спецпредложений:
+
+                        </div>
+                        <div class="footer__soc__block"></div>
+                    </div>
+                    <div class="footer__slider__wrap">
+                        <div class="footer__slider">
+                            <div class="footer__slider__container">
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                            </div>
+                        </div>
+                        <div class="footer__slider__next"></div>
+                        <div class="footer__slider__prev"></div>
+                        
+                    </div>
+                    <div class="footer__contacts">
+                        8 915 062-62-63
+                        <span>© 2011 - 2013 «Fit-n-go!»</span>
+                    </div>
+                </footer>
+            </div>
+            
+            <div class="layout__bottom"></div>
+        </div>
+    </body>
+</html>
+    

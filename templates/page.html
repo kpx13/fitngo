@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ p.title }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% for b in breadcrumbs %}
+        <a href="{{ b.link }}">{{ b.title }}</a>
+    {% endfor %}
+    <a href="#" class="active">{{ p.title }}</a>
+{% endblock %}
+
+{% block content %}
+    {{ p.content|safe }}
+{% endblock %}
