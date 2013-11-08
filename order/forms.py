@@ -20,7 +20,10 @@ class OrderForm(ModelForm):
       
     def save(self, *args, **kwargs):
         super(OrderForm, self).save(*args, **kwargs)
-        subject=u'Поступила новая заявка',
+        if 'card' in self.data:
+            subject=u'Новая запись на тренировку'
+        else:
+            subject=u'Поступила новая заявка на пробную тренировку'
         
         body_templ="""
 {% for field in form %}

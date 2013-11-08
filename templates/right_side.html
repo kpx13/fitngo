@@ -2,9 +2,11 @@
     <h4>Подписаться на рассылку<br/>
         «5 ГЛАВНЫХ ОШИБОК <br/>ПРИ ПОХУДЕНИИ»: </h4>
 
-    <form action="">
-        <span class="back"> <input type="text" placeholder="Ваш email" name="user-email"/>  </span>
+    <form method='POST' action=''>
+        <span class="back"> <input type="text" placeholder="Ваш email" name="email"/>  </span>
         <span class="back form-btn btn-green"> <input type="submit" value="Отправить"/> </span>
+        <input type='hidden' name='action' value='subscribe'>
+        {% csrf_token %}
     </form>
 
 </section>
@@ -12,7 +14,9 @@
 <section class="sidebar__box">
     <h5>Запишитесь на пробную тренировку и получите <span class="text_red">диагностику организма <br/>
         в подарок!</span></h5>
-    <span class="back form-btn btn-yellow"> <input type="submit" id="get" value="Получить"/> </span>
+    <span class="back form-btn btn-yellow"> 
+        <input type="submit" id="get" value="Получить"/> 
+    </span>
 </section>
 
 <section class="sidebar__info">
