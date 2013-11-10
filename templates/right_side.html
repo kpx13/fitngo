@@ -20,10 +20,7 @@
 </section>
 
 <section class="sidebar__info">
-    <img src="/static/img/info.jpg"/>
-    <h4 class="sidebar__info__title"><a href="#">Название комплекса</a></h4>
-
-    <div class="sidebar__info__text"> Описание комплекса</div>
+    {{ complex|safe }}
 </section>
 
 <section class="sidebar__review__wrap">
@@ -36,7 +33,7 @@
         </div>
     {% endfor %}
     
-    <div class="sidebar__review__link"><a href="#" class="sidebar__review__more"> </a></div>
+    <div class="sidebar__review__link"><a href="/reviews/" class="sidebar__review__more"> </a></div>
 
 </section>
 

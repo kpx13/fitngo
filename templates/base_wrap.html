@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,8 +22,8 @@
                 <div class="popup__title"> Записаться на тренировку
                 </div>
                 <form action="" method='POST'>
-                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}'/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %} />  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
                     <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
                     <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span>
                     <span class="back"> <input type="text" placeholder="Номер карты" name="card" value='{% if form.card.value %}{{ form.card.value }}{% endif %}'/>  </span>
@@ -46,8 +47,8 @@
                                     в подарок!</span></h5>
                 </div>
                 <form action="" method='POST'>
-                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}'/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
                     <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
                     <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span>
                     <span class="back form-btn btn-yellow"> <input type="submit" value="Получить"/> </span>
@@ -67,19 +68,17 @@
                 <header>
                     <nav class="g-nav">
                         <ul>
-                            <li><a href="/kak-eto-rabotaet/">Как это работает? </a></li>
-                            <li><a href="#">Мои цели </a>
-                                <ul>
-                                    <li><a href="/pohudet/">Похудеть </a></li>
-                                    <li><a href="/uvelichit-myishtsyi/"> Увеличить мышцы</a></li>
-                                    <li><a href="/izbavitsya-ot-boli-v-spine/"> Избавиться от боли в спине </a></li>
-                                    <li><a href="/vosstanovitsya-posle-travm/"> Восстановиться после травм </a></li>
-                                    <li><a href="/kompleksnyie-programmyi/"> Комплексные программы</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/tehnologii/">Технологии</a></li>
-                            <li><a href="/o-studii/">О студии</a></li>
-                            <li><a href="/kontaktyi/">Контакты</a></li>
+                            {% for m in menu %}
+                                <li><a href="{{ m.href }}">{{ m.title }}</a>
+                                {% if m.submenu.all %}
+                                    <ul>
+                                        {% for s in m.submenu.all %}
+                                            <li><a href="{{ s.href }}">{{ s.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                </li>
+                            {% endfor %}
                         </ul>
                     </nav>
                     <div class="header__contacts">
@@ -104,13 +103,15 @@
                     <div class="footer__slider__wrap">
                         <div class="footer__slider">
                             <div class="footer__slider__container">
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
-                                <div class="footer__slider__i"><img src="/static/img/footer-preview.jpg"/></div>
+                                {% for p in partners %}
+                                    <div class="footer__slider__i">
+                                        {% thumbnail p.logo "x50" as im %}
+                                            <a class="slider_item" href="/media/{{ p.logo }}" title="">
+                                                <img src="{{ im.url }}" />
+                                            </a>
+                                        {% endthumbnail %}
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="footer__slider__next"></div>

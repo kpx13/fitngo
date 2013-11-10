@@ -3,9 +3,9 @@
 {% block title %}{{ p.title }}{% endblock %}
 
 {% block breadcrumbs %}
-    {% for b in breadcrumbs %}
-        <a href="{{ b.link }}">{{ b.title }}</a>
-    {% endfor %}
+    {% if menu_cat %}
+        <a href="{{ menu_cat.href }}">{{ menu_cat.title }}</a>
+    {% endif %}
     <a href="#" class="active">{{ p.title }}</a>
 {% endblock %}
 

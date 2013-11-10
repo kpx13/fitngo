@@ -116,6 +116,8 @@ INSTALLED_APPS = (
     'review',
     'slideshow',
     'subscribe',
+    'menu',
+    'partners',
 )
 
 

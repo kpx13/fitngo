@@ -11,6 +11,8 @@ from pages.models import Page
 from news.models import Article as News
 from order.forms import OrderForm
 from order.models import Order
+from menu.models import Menu
+from partners.models import Partner
 from subscribe.models import Subscribe
 from gallery.models import Photo
 from review.models import Review
@@ -49,8 +51,16 @@ def get_common_context(request):
 
     c['request_url'] = request.path
     c['is_debug'] = settings.DEBUG
-    c['reviews'] = Review.objects.all()
+    c['reviews'] = Review.objects.all()[:3]
     c['form'] = form
+    c['menu'] = Menu.objects.filter(parent=None)
+    c['partners'] = Partner.objects.all()
+    c['complex'] = Page.get_by_slug('complex').content
+    
+    try:
+        c['menu_cat'] = Menu.get_by_href(request.path).parent
+    except:
+        c['menu_cat'] = None
     c.update(csrf(request))
     return c
 
@@ -67,6 +77,7 @@ def home(request):
     c = get_common_context(request)
     c['request_url'] = 'home'
     c['slider'] = Slider.objects.all()
+    c['need_slider'] = len(c['slider']) > 1
     c['content'] = Page.get_by_slug('home').content
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
@@ -74,6 +85,11 @@ def news(request):
     c = get_common_context(request)
     c['news'] = News.objects.all()
     return render_to_response('news.html', c, context_instance=RequestContext(request))
+
+def reviews(request):
+    c = get_common_context(request)
+    c['reviews'] = Review.objects.all()
+    return render_to_response('reviews.html', c, context_instance=RequestContext(request))
 
 def gallery(request):
     c = get_common_context(request)

@@ -4,15 +4,19 @@
 
 {% block wrapper %}
     <div class="slider__wrap">
-        <div class="slider">
-            {% for s in slider %}
-                <div class="slider__i {% if forloop.first %}active{% endif %}" style='background: url(/media/{{ s.image }}) no-repeat 0 0;'>
-                    {{ s.content|safe }}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="slider__next"></div>
-        <div class="slider__prev"></div>
+        {% if need_slider %}
+            <div class="slider">
+                {% for s in slider %}
+                    <div class="slider__i {% if forloop.first %}active{% endif %}" style='background: url(/media/{{ s.image }}) no-repeat 0 0;'>
+                        {{ s.content|safe }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="slider__next"></div>
+            <div class="slider__prev"></div>
+        {% else %}
+            <img src='/media/{{ slider.0.image }}' />
+        {% endif %}
     </div>
     
     {% if messages %}

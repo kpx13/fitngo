@@ -45,11 +45,13 @@ class CustomIndexDashboard(Dashboard):
             modules.ModelList(
                 title = u'Страницы и Контент',
                 models=(
+                    'menu.models.Menu',
                     'pages.models.Page',
                     'gallery.models.Photo',
                     'news.models.Article',
                     'review.models.Review',
                     'slideshow.models.Slider',
+                    'partners.models.Partner',
                 ),
             )
         )

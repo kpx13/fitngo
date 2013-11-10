@@ -105,7 +105,9 @@ $(function () {
         $(".gallery").each(function (index, v) {
             $(this).find('.gallery__item').colorbox({rel: 'gallery' + index });
         });
-
-
+        
+        $(".footer__slider__container").each(function (index, v) {
+            $(this).find('.slider_item').colorbox({rel: 'footer__slider__container' + index });
+        });
     });
 });
