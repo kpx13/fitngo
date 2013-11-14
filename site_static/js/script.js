@@ -12,7 +12,7 @@ $(function () {
             });
         }
         else {
-            slide.eq(0).css('left', 1000).animate({left: 0})
+            slide.eq(0).css('left', 1000).animate({left: 0});
             slideAct.animate({left: -1000}, function () {
                 slideAct.removeClass("active");
                 slide.eq(0).addClass("active");
@@ -65,11 +65,11 @@ $(function () {
         if (!slider.is(":animated")) {
 
             slider.animate({
-                left: '-=95'
+                left: '-=115'
             }, function () {
                 $(".footer__slider__i").eq(0).clone(true).appendTo(slider);
                 $(".footer__slider__i").eq(0).remove();
-                slider.css('left', '+=95')
+                slider.css('left', '+=115')
             })
         }
 
@@ -80,11 +80,11 @@ $(function () {
             slideWidth = slide.width();
         if (!slider.is(":animated")) {
             slider.animate({
-                left: '+=95'
+                left: '+=115'
             }, function () {
                 $(".footer__slider__i").eq(-1).clone(true).prependTo(slider);
                 $(".footer__slider__i").eq(-1).remove();
-                slider.css('left', '-=95')
+                slider.css('left', '-=115')
             })
 
         }
@@ -106,8 +106,18 @@ $(function () {
             $(this).find('.gallery__item').colorbox({rel: 'gallery' + index });
         });
         
-        $(".footer__slider__container").each(function (index, v) {
-            $(this).find('.slider_item').colorbox({rel: 'footer__slider__container' + index });
-        });
+        $(".footer__slider__container").each(function (index, v) {
+            $(this).find('.slider_item').colorbox({rel: 'footer__slider__container' + index });
+        });
+
+    });
+    $(".sidebar__nav").find("li a").click(function(){
+        $(".sidebar__nav").find("li a").removeClass("active");
+         $(this).addClass("active");
+    });
+    $(".g-nav").find("li a").click(function(){
+       var index =  $(this).parent().index();
+        $(".sidebar__nav").find("li a").removeClass("active");
+        $(".sidebar__nav").find("li").eq(index).find("a").addClass("active");
     });
 });
