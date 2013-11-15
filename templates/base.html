@@ -17,11 +17,10 @@
             {% if menu_cat.submenu.all %}
                 <ul class="sidebar__nav">
                     {% for s in menu_cat.submenu.all %}
-                        <li><a href="{{ s.href }}">{{ s.title }}</a></li>
+                        <li><a href="{{ s.href }}" {% if s.href in request_url %} class='active' {% endif %}>{{ s.title }}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}
-
             
             {% include 'right_side.html' %}
         </aside>

@@ -152,7 +152,7 @@ header {
     transform: skew(-25deg);
 }
 
-.g-nav li:hover {
+.g-nav li:hover, .g-nav li.active{
     background: #f1f3ee;
     border-color: transparent;
 }
@@ -170,6 +170,7 @@ header {
     font-size: 17px;
     display: block;
 }
+
 
 .g-nav li ul {
     position: absolute;
@@ -213,6 +214,10 @@ header {
 }
 
 .g-nav li ul li a:hover {
+    background: #82c341;
+    color: #fff;
+}
+.g-nav li ul li a:hover, .g-nav li ul li a:active  {
     background: #82c341;
     color: #fff;
 }
@@ -980,7 +985,6 @@ span.text_red {
 
 .footer__soc__block a:hover {
     background-position: 0 -31px;
-
 }
 
 .fb {

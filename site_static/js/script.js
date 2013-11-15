@@ -106,9 +106,9 @@ $(function () {
             $(this).find('.gallery__item').colorbox({rel: 'gallery' + index });
         });
         
-        $(".footer__slider__container").each(function (index, v) {
-            $(this).find('.slider_item').colorbox({rel: 'footer__slider__container' + index });
-        });
+        $(".footer__slider__container").each(function (index, v) {
+            $(this).find('.slider_item').colorbox();
+        });
 
     });
     $(".sidebar__nav").find("li a").click(function(){
@@ -117,6 +117,10 @@ $(function () {
     });
     $(".g-nav").find("li a").click(function(){
        var index =  $(this).parent().index();
+        $(".g-nav").find("li a").removeClass("active");
+        $(".g-nav").find("li").removeClass("active");
+        $(this).addClass("active");
+        $(this).parent().addClass("active");
         $(".sidebar__nav").find("li a").removeClass("active");
         $(".sidebar__nav").find("li").eq(index).find("a").addClass("active");
     });
