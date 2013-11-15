@@ -110,7 +110,7 @@
                                 {% for p in partners %}
                                     <div class="footer__slider__i">
                                         {% thumbnail p.logo "x50" as im %}
-                                            <a class="slider_item" href="/media/{{ p.logo }}" title="<a href='{{ p.url }}'>asdf</a>">
+                                            <a class="slider_item" href="/media/{{ p.logo }}" title="<a href='{{ p.url }}' target='_blank'>{{ p.url }}</a>">
                                                 <img src="{{ im.url }}" />
                                             </a>
                                         {% endthumbnail %}
