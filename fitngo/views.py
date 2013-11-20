@@ -88,7 +88,7 @@ def news(request):
 
 def reviews(request):
     c = get_common_context(request)
-    c['reviews'] = Review.objects.all()
+    c['reviews_all'] = Review.objects.all()
     return render_to_response('reviews.html', c, context_instance=RequestContext(request))
 
 def gallery(request):

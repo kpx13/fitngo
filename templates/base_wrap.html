@@ -26,8 +26,8 @@
                     <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %} />  </span>
                     <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
                     <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Номер карты" name="card" value='{% if form.card.value %}{{ form.card.value }}{% endif %}'/>  </span>
+<!--                     <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span> -->
+<!--                     <span class="back"> <input type="text" placeholder="Номер карты" name="card" value='{% if form.card.value %}{{ form.card.value }}{% endif %}'/>  </span> -->
                     <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
                     <input type='hidden' name='action' value='signup'>
                     {% csrf_token %}
@@ -83,9 +83,9 @@
                         </ul>
                     </nav>
                     <div class="header__contacts">
-                        <span class="header__contacts__phone">  +7(495) 969 88 69</span>
-                        <a class="btn__grey back" href="#" id="sign">Записаться на
-                            тренировку</a>
+                        <span class="header__contacts__phone">  +7(495) 969 88 69</span> 
+                        <span class="back form-btn btn-yellow" style='width: 220px; margin-left: 20px'> <input value="Перезвонить мне"  style='width: 220px' id="sign"/> </span>
+                        
                     </div>
                     <a class="homelink" href="/"></a>
                     
@@ -98,17 +98,18 @@
                     <div class="footer__soc">
                         <div class="footer__soc__title">Будь в курсе спецпредложений:</div>
                         <div class="footer__soc__block">
-                            <a target="_blank" class="fb" href="#"> </a>
+                            <a target="_blank" class="fb" href="https://www.facebook.com/fitngo.ru"> </a>
                             <a target="_blank" class="mail" href="#"> </a>
-                            <a target="_blank" class="tw" href="#"> </a>
+                            <a target="_blank" class="tw" href="https://twitter.com/Fit_n_go"> </a>
                             <a target="_blank" class="skype" href="#"> </a>
                             <a target="_blank" class="yt" href="#"> </a>
                             <a target="_blank" class="odn" href="#"> </a>
-                            <a target="_blank" class="vk" href="#"> </a>
+                            <a target="_blank" class="vk" href="http://vk.com/fitngo"> </a>
                             <a target="_blank" class="icon-last" href="#"> </a>
                         </div>
                     </div>
                     <div class="footer__slider__wrap">
+                        <div class="footer__part__title">Наши партнеры:</div>
                         <div class="footer__slider">
                             <div class="footer__slider__container">
                                 {% for p in partners %}

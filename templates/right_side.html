@@ -28,14 +28,26 @@
     
     {% for r in reviews %}
         <div class="sidebar__review">
-            <div class="sidebar__review__name"> {{ r.name }}, {{ r.age }}</div>
+            <a href='/reviews' style='text-decoration: none'><div class="sidebar__review__name"> {{ r.name }}, {{ r.age }}</div></a>
             <div class="sidebar__review__text"> “{{ r.text }}” </div>
         </div>
     {% endfor %}
     
-    <div class="sidebar__review__link"><a href="/reviews/" class="sidebar__review__more"> </a></div>
+<!--     <div class="sidebar__review__link"><a href="/reviews/" class="sidebar__review__more"> </a></div> -->
 
 </section>
 
 <section class="sidebar__like-boxes">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/ru_RU/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="fb-like-box" data-href="https://www.facebook.com/fitngo.ru" data-width="250" data-height="300"
+        data-show-faces="true" data-header="true" data-stream="true" data-show-border="true" style='margin-top: 40px'>
+    </div>
 </section>
