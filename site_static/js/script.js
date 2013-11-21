@@ -109,6 +109,8 @@ $(function () {
         $(".footer__slider__container").each(function (index, v) {
             $(this).find('.slider_item').colorbox();
         });
+        
+        $(".slider_video").colorbox();
 
     });
     $(".sidebar__nav").find("li a").click(function(){

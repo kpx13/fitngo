@@ -724,9 +724,14 @@ h5 {
     margin-bottom: 20px;
 }
 
-.sidebar__review__name {
+.sidebar__review__name, .review_name {
     color: #7fb625;
+    text-decoration: none;
 }
+.review_name:hover {
+    text-decoration: underline;
+}
+
 .sidebar__review__text{
     font-size:13px;
 

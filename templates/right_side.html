@@ -28,7 +28,7 @@
     
     {% for r in reviews %}
         <div class="sidebar__review">
-            <a href='/reviews' style='text-decoration: none'><div class="sidebar__review__name"> {{ r.name }}, {{ r.age }}</div></a>
+            <a href='/reviews' class='review_name'><div class="sidebar__review__name"> {{ r.name }}, {{ r.age }}</div></a>
             <div class="sidebar__review__text"> “{{ r.text }}” </div>
         </div>
     {% endfor %}
