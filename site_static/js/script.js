@@ -110,7 +110,7 @@ $(function () {
             $(this).find('.slider_item').colorbox();
         });
         
-        $(".slider_video").colorbox();
+        $(".slider_video").colorbox({html: '<iframe width="560" height="315" src="//www.youtube.com/embed/lTPN-3YPx-w?rel=0" frameborder="0" allowfullscreen></iframe>', width: '630px', height: '400px'});
 
     });
     $(".sidebar__nav").find("li a").click(function(){
