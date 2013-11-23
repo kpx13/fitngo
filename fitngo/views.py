@@ -9,6 +9,7 @@ from django.contrib import messages
 
 from pages.models import Page
 from news.models import Article as News
+from programs.models import Program
 from order.forms import OrderForm
 from order.models import Order
 from menu.models import Menu
@@ -84,6 +85,11 @@ def home(request):
 def news(request):
     c = get_common_context(request)
     c['news'] = News.objects.all()
+    return render_to_response('news.html', c, context_instance=RequestContext(request))
+
+def programs(request):
+    c = get_common_context(request)
+    c['news'] = Program.objects.all()
     return render_to_response('news.html', c, context_instance=RequestContext(request))
 
 def reviews(request):

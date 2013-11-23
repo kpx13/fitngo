@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Новости{% endblock %}
+{% block title %}{% if 'news' in request_url %}Новости{% else %}Комплексные программы{% endif %}{% endblock %}
 
 {% block breadcrumbs %}
-    <a href="#" class="active">Новости</a>
+    <a href="#" class="active">{% if 'news' in request_url %}Новости{% else %}Комплексные программы{% endif %}</a>
 {% endblock %}
 
 {% block content %}

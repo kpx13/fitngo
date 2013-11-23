@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'subscribe',
     'menu',
     'partners',
+    'programs',
 )
 
 

@@ -49,6 +49,7 @@ class CustomIndexDashboard(Dashboard):
                     'pages.models.Page',
                     'gallery.models.Photo',
                     'news.models.Article',
+                    'programs.models.Program',
                     'review.models.Review',
                     'slideshow.models.Slider',
                     'partners.models.Partner',
