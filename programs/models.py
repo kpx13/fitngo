@@ -5,7 +5,8 @@ import pytils
 
 class Program(models.Model):
     title = models.CharField(max_length=128, verbose_name=u'заголовок')
-    image = models.ImageField(upload_to= 'uploads/news', max_length=256, verbose_name=u'фото')
+    image = models.ImageField(upload_to=lambda instance, filename: 'uploads/programs/' + pytils.translit.translify(filename),
+	max_length=256, verbose_name=u'фото')
     content = RichTextField(blank=True, verbose_name=u'текст в подробнее')
     date = models.DateField(verbose_name=u'дата')
     slug = models.SlugField(verbose_name=u'слаг', unique=True, blank=True, help_text=u'Заполнять не нужно')
