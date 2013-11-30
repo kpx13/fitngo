@@ -63,6 +63,7 @@ class CustomIndexDashboard(Dashboard):
                 title = u'Заявки и Подписки',
                 models=(
                     'order.models.Order',
+                    'homeform.models.OrderH',
                     'subscribe.models.Subscribe',
                 ),
             )

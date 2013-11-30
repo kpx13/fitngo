@@ -2,6 +2,10 @@
 
 {% block title %}Главная{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="/static/css/styles.css">
+{% endblock %}
+
 {% block wrapper %}
     <div class="slider__wrap">
         {% if need_slider %}
@@ -35,14 +39,31 @@
         </aside>
         
         <div class="content">
+            
+            <div class="main-page">
 
-            {{ content|safe }}
-<!--
-            <form action="">
-                <span class="back"> <input type="text" placeholder="Ваше имя" name="user-name"/>  </span>
-                <span class="back"> <input type="text" placeholder="Ваш телефон" name="user-phone"/> </span>
-                <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
-            </form>-->
+                {{ c1|safe }}
+                
+                
+                <section class=" block block_form _grey">
+                    {% include 'homeform.html' %}
+                </section>
+                
+                {{ c2|safe }}
+                
+                <section class=" block block_form _grey">
+                    <h6>только до 20 декабря, в связи с открытием, <br/>
+                        мы предоставляем скидку до 50% на покупку <br/>
+                        любого абонемента! </h6>
+
+                    {% include 'homeform.html' %}
+                </section>
+                
+                
+                {{ c3|safe }}
+
+            </div>
+            
         </div>
 
     </div>

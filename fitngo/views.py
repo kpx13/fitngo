@@ -12,6 +12,7 @@ from news.models import Article as News
 from programs.models import Program
 from order.forms import OrderForm
 from order.models import Order
+from homeform.forms import OrderHForm
 from menu.models import Menu
 from partners.models import Partner
 from subscribe.models import Subscribe
@@ -28,6 +29,7 @@ PAGINATION_COUNT = 5
 
 def get_common_context(request):
     form = OrderForm()
+    hform = OrderHForm()
     c = {}
     if request.method == 'POST':
         if request.POST['action'] == 'subscribe':
@@ -37,6 +39,15 @@ def get_common_context(request):
                 messages.success(request, u'Вы успешно подписались на рассылку.')
             else:
                 messages.error(request, u'Необходимо ввести емейл.')
+        elif request.POST['action'] == 'homeform':
+            hform = OrderHForm(request.POST)
+            if hform.is_valid():
+                hform.save()
+                messages.success(request, u'Ваша заявка успешно отправлена.')
+                hform = OrderHForm()
+            else:
+                c['show_hform'] = True
+                messages.error(request, u'Необходимо ввести имя и телефон.')
         else:
             form = OrderForm(request.POST)
             if form.is_valid():
@@ -54,6 +65,7 @@ def get_common_context(request):
     c['is_debug'] = settings.DEBUG
     c['reviews'] = Review.objects.all()[:3]
     c['form'] = form
+    c['hform'] = hform
     c['menu'] = Menu.objects.filter(parent=None)
     c['partners'] = Partner.objects.all()
     c['complex'] = Page.get_by_slug('complex').content
@@ -79,7 +91,9 @@ def home(request):
     c['request_url'] = 'home'
     c['slider'] = Slider.objects.all()
     c['need_slider'] = len(c['slider']) > 1
-    c['content'] = Page.get_by_slug('home').content
+    c['c1'] = Page.get_by_slug('home_1').content
+    c['c2'] = Page.get_by_slug('home_2').content
+    c['c3'] = Page.get_by_slug('home_3').content
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def news(request):

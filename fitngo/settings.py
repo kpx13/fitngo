@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'menu',
     'partners',
     'programs',
+    'homeform',
 )
 
 
