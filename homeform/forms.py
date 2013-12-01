@@ -6,7 +6,7 @@ from django.conf import settings
 from livesettings import config_value
 from django.core.mail import send_mail
 from django.template import Context, Template
-
+from django.forms import ModelForm, Form, fields
 
 def sendmail(subject, body):
     mail_subject = ''.join(subject)
@@ -14,6 +14,7 @@ def sendmail(subject, body):
         [config_value('MyApp', 'EMAIL')])
 
 class OrderHForm(ModelForm):
+    phone  = fields.CharField(label=u'имя', min_length=7)
     class Meta:
         model = OrderH
         exclude = ('date', )

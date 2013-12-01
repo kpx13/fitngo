@@ -4,6 +4,13 @@
 
 {% block head %}
     <link rel="stylesheet" href="/static/css/styles.css">
+    
+    {% if show_hform %}
+    <script>
+        location.hash = 'homeform';
+    </script>
+    {% endif %}
+    
 {% endblock %}
 
 {% block wrapper %}
@@ -45,7 +52,7 @@
                 {{ c1|safe }}
                 
                 
-                <section class=" block block_form _grey">
+                <section class=" block block_form _grey" id='homeform'>
                     {% include 'homeform.html' %}
                 </section>
                 
