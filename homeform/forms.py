@@ -14,7 +14,7 @@ def sendmail(subject, body):
         [config_value('MyApp', 'EMAIL')])
 
 class OrderHForm(ModelForm):
-    phone  = fields.CharField(label=u'имя', min_length=7)
+    phone  = fields.CharField(label=u'имя', min_length=10)
     class Meta:
         model = OrderH
         exclude = ('date', )
