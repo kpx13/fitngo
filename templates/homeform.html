@@ -2,12 +2,13 @@
     <input type='hidden' name='action' value='homeform'>
     {% csrf_token %}
 
-    <div class="form__desc">Данное предложение не является офертой. После отправки заявки менеджер свяжется с
-        Вами для проведения подробной консультации и уточнения условий приобретения абонемента
+    <div class="form__desc">
+	<h6>Только до 15 декабря!</h6>
+	<h3 class="_red">Запишитесь на пробную тренировку и получите Полную Диагностику состава тела в Подарок!</h3>	    
     </div>
-    <div class="block-form__btn">
-        <span class="back form-btn btn-yellow"> 
-        <input type="submit" value="Забронировать абонемент"> </span>
+    <div class="block-form__btn" style='padding-bottom: 20px'>
+        <span class="back form-btn btn-yellow" style='margin-right: 90px'> 
+        <input type="submit" value="Записаться" style=''> </span>
     </div>
     <p><span class="back"> 
         <input type="text" placeholder="Ваше имя" name="name" value='{% if hform.name.value %}{{ hform.name.value }}{% endif %}' {% if hform.errors.name %} style='border: 1px solid red' {% endif %} />
