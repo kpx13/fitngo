@@ -24,6 +24,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import config
 from livesettings import config_value
 from django.conf import settings
+import datetime
 
 PAGINATION_COUNT = 5
 
@@ -94,6 +95,10 @@ def home(request):
     c['c1'] = Page.get_by_slug('home_1').content
     c['c2'] = Page.get_by_slug('home_2').content
     c['c3'] = Page.get_by_slug('home_3').content
+    if datetime.datetime.now().day % 2:
+        c['action_name'] = u'Пробная Тренировка Бесплатно'
+    else:
+        c['action_name'] = u'Диагностика Состава Тела в Подарок'
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def news(request):

@@ -5,6 +5,37 @@
 {% block head %}
     <link rel="stylesheet" href="/static/css/styles.css">
     
+    <style>
+        .time { width: 40px !important; font-size: 20px; text-align: center; margin: 0 auto; }
+        .rezult-timer {color: #222;}
+        .time-d {width: 40px; text-align: center; }
+    </style>
+    
+    <script type="text/javascript">
+        function countdown(){   /* создадим функцию countdown */
+            var t = new Date();
+            var today = t.getTime();   /* определим сколько милисекунд прошло с 1970 года до данного момента и запишем в переменную today */
+            var end = new Date(t.getFullYear() , t.getMonth(), t.getDate() + 1).getTime();   /* определим сколько милисекунд пройдет c 1970 до указанного в скобках числа (1 января 2013) и запишем в переменную end */
+            var dateX = new Date(end - today);   /* узнаем разницу в милисекундах и запишем в переменную dateX */
+            var perDays = 60*60*1000*24;   /* произведем расчет милисекунд в сутки и запишем в переменную perDays */
+            date_to_write =
+                    '<span class="time">' + (Math.round(dateX/perDays)) + '</span> :'+
+                    '<span class="time">' + dateX.getUTCHours().toString() + '</span> :'+
+                    '<span class="time">' + dateX.getMinutes().toString() + '</span> :'+
+                    '<span class="time">' + dateX.getSeconds().toString() + '</span>';   /* определяем количество дней путем деления dateX на perDays и округляем это значение. А из остатка вычисляем сколько часов, дней, минут и секунд осталось и приводим в строковые данные */
+            $(".rezult-timer").each (
+                function() {
+                    $(this).html(date_to_write);
+                }
+            )
+        }
+
+        $(document).ready(function () {
+        countdown();   /* вызываем функцию */
+        setInterval(countdown, 1000);   /* даем интервал вызова функции в 1 секунду */
+        });
+    </script>
+    
     {% if show_hform %}
     <script>
         location.hash = 'homeform';
@@ -14,6 +45,7 @@
 {% endblock %}
 
 {% block wrapper %}
+    
     <div class="slider__wrap">
         {% if need_slider %}
             <div class="slider">

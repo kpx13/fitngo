@@ -2,9 +2,16 @@
     <input type='hidden' name='action' value='homeform'>
     {% csrf_token %}
 
+    <h6>{{ action_name }}</h6>
     <div class="form__desc">
-	<h6>Только до 25 декабря!</h6>
-	<h3 class="_red">Запишитесь на пробную тренировку и получите Массаж всего тела в Подарок!</h3>	    
+        <h4>До окончания акции осталось</h4>
+        <div style='border: 1px solid #c0c0c0; width: 240px; margin: 0 auto; padding: 5px'>
+            <div class="rezult-timer"></div>
+            <span class="time-d">дни</span>
+            <span class="time-d">часы</span> 
+            <span class="time-d"> мин</span> 
+            <span class="time-d"> сек</span> 
+        </div>
     </div>
     <div class="block-form__btn" style='padding-bottom: 20px'>
         <span class="back form-btn btn-yellow" style='margin-right: 90px'> 
