@@ -21,7 +21,7 @@
             
             <div class="popup popup-sign">
                 <span class="popup___close"></span>
-                <div class="popup__title"> Перезвонить мне
+                <div class="popup__title"> Записаться на бесплатную тренировку
                 </div>
                 <form action="" method='POST'>
                     <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %} />  </span>
@@ -29,7 +29,7 @@
                     <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
 <!--                     <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span> -->
 <!--                     <span class="back"> <input type="text" placeholder="Номер карты" name="card" value='{% if form.card.value %}{{ form.card.value }}{% endif %}'/>  </span> -->
-                    <span class="back form-btn btn-yellow"> <input type="submit" value="Перезвонить мне"/> </span>
+                    <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
                     <input type='hidden' name='action' value='signup'>
                     {% csrf_token %}
                 </form>
@@ -81,11 +81,21 @@
                                 {% endif %}
                                 </li>
                             {% endfor %}
+                            
                         </ul>
+                        
                     </nav>
+                    
                     <div class="header__contacts">
-                        <span class="header__contacts__phone">  +7(495) 969 88 69</span> 
-                        <span class="back form-btn btn-yellow" style='width: 220px; margin-left: 20px'> <input value="Перезвонить мне"  style='width: 220px' id="sign"/> </span>
+                        
+                        <span class="header__contacts__phone"> 
+                        <span class='soc_icons_top' style='padding: 0px; margin: 0px; height: 35px; margin-right: 15px'>
+                            <a href='https://www.facebook.com/fitngo.ru' target='_blank'><img src='/static/img/facebook.png' style='width: 30px;'></a>
+                            <a href='http://instagram.com/fit_n_go_/' target='_blank'><img src='/static/img/instagram.png' style='width: 30px'></a>
+                            <a href='http://www.youtube.com/channel/UClZjoXRWWU_Y9bd7rDzjtlw' target='_blank'><img src='/static/img/youtube_3.png' style='width: 30px'></a>
+                        </span>
+                        +7(495) 969 88 69 </span>
+                        <span class="back form-btn btn-yellow" style='width: 220px; margin-left: 20px'> <input value="Записаться"  style='width: 220px' id="sign"/> </span>
                         
                     </div>
                     <a class="homelink" href="/"></a>
