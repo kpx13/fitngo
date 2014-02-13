@@ -96,7 +96,7 @@ def home(request):
     c['c2'] = Page.get_by_slug('home_2').content
     c['c3'] = Page.get_by_slug('home_3').content
     if datetime.datetime.now().day % 2:
-        c['action_name'] = u'Пробная Тренировка Бесплатно'
+        c['action_name'] = u'+ 1 тренировка в подарок'
     else:
         c['action_name'] = u'Диагностика Состава Тела в Подарок'
     return render_to_response('home.html', c, context_instance=RequestContext(request))
