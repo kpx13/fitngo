@@ -53,7 +53,7 @@ def get_common_context(request):
             form = OrderForm(request.POST)
             if form.is_valid():
                 form.save()
-                return HttpResponseRedirect('/request-ok/')
+                c['request-ok'] = True
             else:
                 if request.POST['action'] == 'signup':
                     c['show_signup'] = True
@@ -81,6 +81,8 @@ def get_common_context(request):
 
 def page(request, page_name):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     p = Page.get_by_slug(page_name)
     if p:
         c.update({'p': p})
@@ -90,6 +92,8 @@ def page(request, page_name):
 
 def home(request):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     c['request_url'] = 'home'
     c['slider'] = Slider.objects.all()
     c['need_slider'] = len(c['slider']) > 1
@@ -104,20 +108,28 @@ def home(request):
 
 def news(request):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     c['news'] = News.objects.all()
     return render_to_response('news.html', c, context_instance=RequestContext(request))
 
 def programs(request):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     c['news'] = Program.objects.all()
     return render_to_response('news.html', c, context_instance=RequestContext(request))
 
 def reviews(request):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     c['reviews_all'] = Review.objects.all()
     return render_to_response('reviews.html', c, context_instance=RequestContext(request))
 
 def gallery(request):
     c = get_common_context(request)
+    if 'request-ok' in c:
+        return HttpResponseRedirect('/request-ok/')
     c['gallery'] = Photo.objects.all()
     return render_to_response('gallery.html', c, context_instance=RequestContext(request))
