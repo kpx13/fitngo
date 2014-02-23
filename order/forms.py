@@ -22,15 +22,17 @@ class OrderForm(ModelForm):
         super(OrderForm, self).save(*args, **kwargs)
         if 'card' in self.data:
             subject=u'Новая запись на тренировку'
-        elif 'datetime' in self.data:
-            subject=u'Поступила новая заявка на пробную тренировку'
         else:
-            subject=u'Поступила новая заявка на подарочный сертификат'
+            subject=u'Поступила новая заявка'
         
         body_templ="""
 {% for field in form %}
    {{ field.label }} - {{ field.value }}
 {% endfor %}
+
+* Если заполнен комментарий - то это заявка на подарочный сертификат
+* Если заполнена дата-время тренировки - то заявка на тренировку
+* Если оба поля не заполнены, то лучше уточнить, на что заявка
             """
         ctx = Context({
             'form': self,
