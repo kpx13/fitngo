@@ -53,8 +53,7 @@ def get_common_context(request):
             form = OrderForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, u'Ваша заявка успешно отправлена.')
-                form = OrderForm()
+                return HttpResponseRedirect('/request-ok/')
             else:
                 if request.POST['action'] == 'signup':
                     c['show_signup'] = True
