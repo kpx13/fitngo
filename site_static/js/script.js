@@ -101,6 +101,10 @@ $(function () {
         $('.popup__layout').fadeIn();
         $(".popup-get").fadeIn(500);
     });
+    $("#gift").click(function () {
+        $('.popup__layout').fadeIn();
+        $(".popup-gift").fadeIn(500);
+    });
     $(document).ready(function () {
         $(".gallery").each(function (index, v) {
             $(this).find('.gallery__item').colorbox({rel: 'gallery' + index });
