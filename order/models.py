@@ -9,6 +9,7 @@ class Order(models.Model):
     email  = models.CharField(u'Email', blank=True, max_length=255)
     datetime  = models.CharField(u'Дата и время тренировки', blank=True, max_length=255)
     card  = models.CharField(u'Номер карты', blank=True, max_length=255)
+    comment  = models.CharField(u'Комментарий', blank=True, max_length=255)
     request_date = models.DateTimeField(u'дата добавления', auto_now_add=True)
     
     class Meta:

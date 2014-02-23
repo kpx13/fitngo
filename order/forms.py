@@ -22,8 +22,10 @@ class OrderForm(ModelForm):
         super(OrderForm, self).save(*args, **kwargs)
         if 'card' in self.data:
             subject=u'Новая запись на тренировку'
-        else:
+        elif 'datetime' in self.data:
             subject=u'Поступила новая заявка на пробную тренировку'
+        else:
+            subject=u'Поступила новая заявка на подарочный сертификат'
         
         body_templ="""
 {% for field in form %}

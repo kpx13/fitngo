@@ -60,6 +60,8 @@ def get_common_context(request):
                     c['show_signup'] = True
                 if request.POST['action'] == 'get':
                     c['show_get'] = True
+                if request.POST['action'] == 'gift':
+                    c['show_gift'] = True
                 messages.error(request, u'Необходимо ввести имя.')
 
     c['request_url'] = request.path

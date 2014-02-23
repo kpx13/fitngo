@@ -1,3 +1,13 @@
+
+{% if 'podarochnyie-sertifikatyi' in request_url %}
+    <section class="sidebar__box">
+        <h5>Я хочу приобрести <span class="text_red">подарочный сертификат <br /> FIT-N-GO !</span></h5>
+        <span class="back form-btn btn-yellow"> 
+            <input type="submit" id="gift" value="Приобрести"/> 
+        </span>
+    </section>
+{% endif %}
+
 <section class="sidebar__box">
     <h4>Подписаться на рассылку<br/>
         «5 ГЛАВНЫХ ОШИБОК <br/>ПРИ ПОХУДЕНИИ»: </h4>
@@ -19,6 +29,7 @@
     </span>
 </section>
 
+
 <section class="sidebar__info">
     {{ complex|safe }}
 </section>
@@ -38,6 +49,7 @@
 </section>
 
 <section class="sidebar__like-boxes">
+{% if not is_debug %}
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -50,4 +62,5 @@
     <div class="fb-like-box" data-href="https://www.facebook.com/fitngo.ru" data-width="250" data-height="300"
         data-show-faces="true" data-header="true" data-stream="true" data-show-border="true" style='margin-top: 40px'>
     </div>
+{% endif %}
 </section>

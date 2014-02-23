@@ -66,6 +66,30 @@
                 </script>
             {% endif %}
             
+                        
+            <div class="popup popup-gift">
+                <span class="popup___close"></span>
+                <div class="popup-gift__title">
+                <h5>Я хочу приобрести <span class="text_red">подарочный сертификат <br /> FIT-N-GO !</span></h5>
+                </div>
+                <form action="" method='POST'>
+                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
+                    <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
+                    <span class="back"> <input type="text" placeholder="Комментарий" name='comment' value='{% if form.comment.value %}{{ form.comment.value }}{% endif %}'/>  </span>
+                    <span class="back form-btn btn-yellow"> <input type="submit" value="Приобрести"/> </span>
+                    <input type='hidden' name='action' value='gift'>
+                    {% csrf_token %}
+                </form>
+            </div>
+            
+             {% if show_gift %}
+                <script>
+                    $('.popup__layout').fadeIn();
+                    $(".popup-gift").fadeIn(500);
+                </script>
+            {% endif %}
+            
             <div class="wrapper">
                 <header>
                     <nav class="g-nav">
