@@ -101,7 +101,7 @@ $(function () {
         $('.popup__layout').fadeIn();
         $(".popup-get").fadeIn(500);
     });
-    $("#gift").click(function () {
+    $(".gift").click(function () {
         $('.popup__layout').fadeIn();
         $(".popup-gift").fadeIn(500);
     });

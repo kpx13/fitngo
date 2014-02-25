@@ -10,5 +10,24 @@
 {% endblock %}
 
 {% block content %}
-    {{ p.content|safe }}
+	{% if 'podarochnyie-sertifikatyi' in request_url %}
+	    <section class="sidebar__box">
+	        <h5>Я хочу приобрести подарочный сертификат  FIT-N-GO !</h5>
+	        <span class="back form-btn btn-yellow">
+	            <input type="submit" class="gift" value="Приобрести"/>
+	        </span>
+	    </section>
+	{% endif %}
+
+	{{ p.content|safe }}
+
+	{% if 'podarochnyie-sertifikatyi' in request_url %}
+	    <section class="sidebar__box">
+	        <h5>Я хочу приобрести подарочный сертификат  FIT-N-GO !</h5>
+	        <span class="back form-btn btn-yellow">
+	            <input type="submit" class="gift" value="Приобрести"/>
+	        </span>
+	    </section>
+	{% endif %}
+
 {% endblock %}
