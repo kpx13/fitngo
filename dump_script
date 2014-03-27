@@ -1,0 +1,1 @@
+python manage.py dumpdata gallery menu news pages partners order programs review slideshow subscribe > dump_all____.json
