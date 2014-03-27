@@ -13,6 +13,7 @@ from programs.models import Program
 from order.forms import OrderForm
 from order.models import Order
 from homeform.forms import OrderHForm
+from frform.forms import OrderFForm
 from menu.models import Menu
 from partners.models import Partner
 from subscribe.models import Subscribe
@@ -31,6 +32,7 @@ PAGINATION_COUNT = 5
 def get_common_context(request):
     form = OrderForm()
     hform = OrderHForm()
+    fform = OrderFForm()
     c = {}
     if request.method == 'POST':
         if request.POST['action'] == 'subscribe':
@@ -48,6 +50,16 @@ def get_common_context(request):
                 hform = OrderHForm()
             else:
                 c['show_hform'] = True
+                messages.error(request, u'Необходимо ввести имя и телефон.')
+        elif request.POST['action'] == 'franchajzing':
+            fform = OrderFForm(request.POST)
+            if fform.is_valid():
+                fform.save()
+                messages.success(request, u'Ваша заявка успешно отправлена.')
+                fform = OrderFForm()
+            else:
+                print fform.errors
+                c['show_fform'] = True
                 messages.error(request, u'Необходимо ввести имя и телефон.')
         else:
             form = OrderForm(request.POST)
@@ -68,6 +80,7 @@ def get_common_context(request):
     c['reviews'] = Review.objects.all()[:3]
     c['form'] = form
     c['hform'] = hform
+    c['fform'] = fform
     c['menu'] = Menu.objects.filter(parent=None)
     c['partners'] = Partner.objects.all()
     c['complex'] = Page.get_by_slug('complex').content

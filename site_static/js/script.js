@@ -105,6 +105,10 @@ $(function () {
         $('.popup__layout').fadeIn();
         $(".popup-gift").fadeIn(500);
     });
+    $(".franchajzing").click(function () {
+        $('.popup__layout').fadeIn();
+        $(".popup-franchajzing").fadeIn(500);
+    });
     $(document).ready(function () {
         $(".gallery").each(function (index, v) {
             $(this).find('.gallery__item').colorbox({rel: 'gallery' + index });

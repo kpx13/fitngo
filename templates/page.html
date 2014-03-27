@@ -18,6 +18,17 @@
 	        </span>
 	    </section>
 	{% endif %}
+	
+	{% if 'franchajzing' in request_url %}
+        <section class="sidebar__box">
+            <p>Подробнее о франшизе Вы можете узнать <br />по телефону: +7 985 421 3863, e-mail: fr@fit-n-go.com
+<br />или оставьте заявку на открытие студии прямо сейчас</p>
+            <h5>Я хочу открыть студию Fit-n-go!</h5>
+            <span class="back form-btn btn-yellow">
+                <input type="submit" class="franchajzing" value="Подать заявку"/>
+            </span>
+        </section>
+    {% endif %}
 
 	{{ p.content|safe }}
 
@@ -29,5 +40,16 @@
 	        </span>
 	    </section>
 	{% endif %}
+	
+	{% if 'franchajzing' in request_url %}
+        <section class="sidebar__box">
+            <p>Подробнее о франшизе Вы можете узнать <br />по телефону: +7 985 421 3863, e-mail: fr@fit-n-go.com
+<br />или оставьте заявку на открытие студии прямо сейчас</p>
+            <h5>Я хочу открыть студию Fit-n-go!</h5>
+            <span class="back form-btn btn-yellow">
+                <input type="submit" class="franchajzing" value="Подать заявку"/>
+            </span>
+        </section>
+    {% endif %}
 
 {% endblock %}

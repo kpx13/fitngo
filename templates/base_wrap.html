@@ -4,7 +4,7 @@
     <head>
         <title>FitNGo! | {% block title %} {% endblock %}</title>
         <meta charset="utf-8">
-	<meta name='yandex-verification' content='443192a1e0323ae1' />
+        <meta name='yandex-verification' content='443192a1e0323ae1' />
         <link rel="stylesheet" href="/static/css/style.css"/>
         <link rel="stylesheet" href="/static/css/colorbox.css"/>
         <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
@@ -19,76 +19,7 @@
         <div class="layout">
             <div class="popup__layout"></div>
             
-            <div class="popup popup-sign">
-                <span class="popup___close"></span>
-                <div class="popup__title"> Записаться на пробную тренировку
-                </div>
-                <form action="" method='POST'>
-                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %} />  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
-<!--                     <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span> -->
-<!--                     <span class="back"> <input type="text" placeholder="Номер карты" name="card" value='{% if form.card.value %}{{ form.card.value }}{% endif %}'/>  </span> -->
-                    <span class="back form-btn btn-yellow"> <input type="submit" value="Записаться"/> </span>
-                    <input type='hidden' name='action' value='signup'>
-                    {% csrf_token %}
-                </form>
-            </div>
-            
-            {% if show_signup %}
-                <script>
-                    $('.popup__layout').fadeIn();
-                    $(".popup-sign").fadeIn(500);
-                </script>
-            {% endif %}
-                        
-            <div class="popup popup-get">
-                <span class="popup___close"></span>
-                <div class="popup-get__title">
-                <h5>Запишитесь на пробную тренировку и получите <span class="text_red">диагностику организма <br/>
-                                    в подарок!</span></h5>
-                </div>
-                <form action="" method='POST'>
-                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Дата и время тренировки" name='datetime' value='{% if form.datetime.value %}{{ form.datetime.value }}{% endif %}'/>  </span>
-                    <span class="back form-btn btn-yellow"> <input type="submit" value="Получить"/> </span>
-                    <input type='hidden' name='action' value='get'>
-                    {% csrf_token %}
-                </form>
-            </div>
-            
-             {% if show_get %}
-                <script>
-                    $('.popup__layout').fadeIn();
-                    $(".popup-get").fadeIn(500);
-                </script>
-            {% endif %}
-            
-                        
-            <div class="popup popup-gift">
-                <span class="popup___close"></span>
-                <div class="popup-gift__title">
-                <h5>Я хочу приобрести <span class="text_red">подарочный сертификат <br /> FIT-N-GO !</span></h5>
-                </div>
-                <form action="" method='POST'>
-                    <span class="back"> <input type="text" placeholder="Ваше имя" name="name" value='{% if form.name.value %}{{ form.name.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш телефон" name="phone" value='{% if form.phone.value %}{{ form.phone.value }}{% endif %}' {% if form.errors.name %} style='border: 1px solid red' {% endif %}/>  </span>
-                    <span class="back"> <input type="text" placeholder="Ваш email" name="email" value='{% if form.email.value %}{{ form.email.value }}{% endif %}'/>  </span>
-                    <span class="back"> <input type="text" placeholder="Комментарий" name='comment' value='{% if form.comment.value %}{{ form.comment.value }}{% endif %}'/>  </span>
-                    <span class="back form-btn btn-yellow"> <input type="submit" value="Приобрести"/> </span>
-                    <input type='hidden' name='action' value='gift'>
-                    {% csrf_token %}
-                </form>
-            </div>
-            
-             {% if show_gift %}
-                <script>
-                    $('.popup__layout').fadeIn();
-                    $(".popup-gift").fadeIn(500);
-                </script>
-            {% endif %}
+            {% include 'dialogs.html' %}
             
             <div class="wrapper">
                 <header>

@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'partners',
     'programs',
     'homeform',
+    'frform',
 )
 
 
