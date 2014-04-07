@@ -82,7 +82,7 @@
         <span class="back"> <input type="text" placeholder="Email" name="email" value='{% if fform.email.value %}{{ fform.email.value }}{% endif %}'/>  </span>
         <span class="back"> <input type="text" placeholder="Населенный пункт" name="city" value='{% if fform.city.value %}{{ fform.city.value }}{% endif %}'/>  </span>
         <span class="back"> <input type="text" placeholder="Комментарий" name='comment' value='{% if fform.comment.value %}{{ fform.comment.value }}{% endif %}'/>  </span>
-        <span class="back form-btn btn-yellow"> <input type="submit" value="Приобрести"/> </span>
+        <span class="back form-btn btn-yellow"> <input type="submit" value="Подать заявку"/> </span>
         <input type='hidden' name='action' value='franchajzing'>
         {% csrf_token %}
     </form>
