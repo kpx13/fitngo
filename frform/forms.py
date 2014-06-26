@@ -11,7 +11,7 @@ from django.forms import ModelForm, Form, fields
 def sendmail(subject, body):
     mail_subject = ''.join(subject)
     send_mail(mail_subject, body, settings.DEFAULT_FROM_EMAIL,
-        ['fr@fit-n-go.com', ])
+        ['ceo@fit-n-go.com', ])
 
 class OrderFForm(ModelForm):
     phone  = fields.CharField(label=u'имя', min_length=10)
