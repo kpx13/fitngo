@@ -90,7 +90,7 @@ def get_common_context(request):
     except:
         c['menu_cat'] = None
         
-    c['siteurl'] = s.domain
+    c['siteurl'] = request.get_host().split('.')[0]
     c.update(csrf(request))
     return c
 

@@ -66,6 +66,7 @@
                                 <option value='sochi' {% if 'sochi' in siteurl %} selected {% endif %}>Сочи</option>
                             </select>
                         </div>
+			<br />
                         
                         <script>
                             $('#region_select').change(function() {
@@ -74,15 +75,8 @@
                             })
                         </script>
                     </div>
-                   <!-- <div style='padding-top: 20px; margin-left: 60px; height: 30px; z-index: 3'>
-                        Ваш город:
-                        <select id='region_select' style='background-color: white; width: 150px'>
-                            <option value='www'>Москва</option>
-                            <option value='rhn'>Архангельск</option>
-                            <option value='ast'>Астрахань</option>
-                        </select>
-                    </div>-->
                 </header>
+		<br />
                 
                 {% block wrapper %}
                 {% endblock %}
