@@ -17,7 +17,7 @@ DATETIME_FORMAT = '%d.%m.%Y'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'fitngo',   # Or path to database file if using sqlite3.
         'USER': 'fitngo',                      # Not used with sqlite3.
         'PASSWORD': 'fitngo',                  # Not used with sqlite3.

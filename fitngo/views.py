@@ -89,6 +89,8 @@ def get_common_context(request):
         c['menu_cat'] = Menu.get_by_href(request.path).parent
     except:
         c['menu_cat'] = None
+        
+    c['siteurl'] = s.domain
     c.update(csrf(request))
     return c
 

@@ -59,11 +59,11 @@
                             Ваш город:
                             <select id='region_select' style='background-color: white; width: 150px'>
                                 <option value='www'>Москва</option>
-                                <option value='ekb'>Екатеринбург</option>
-                                <option value='tmn'>Тюмень</option>
-                                <option value='pdl'>Подольск</option>
-                                <option value='nvs'>Новосибирск</option>
-                                <option value='sochi'>Сочи</option>
+                                <option value='ekb' {% if 'ekb' in siteurl %} selected {% endif %}>Екатеринбург</option>
+                                <option value='tmn' {% if 'tmn' in siteurl %} selected {% endif %}>Тюмень</option>
+                                <option value='pdl' {% if 'pdl' in siteurl %} selected {% endif %}>Подольск</option>
+                                <option value='nvs' {% if 'nvs' in siteurl %} selected {% endif %}>Новосибирск</option>
+                                <option value='sochi' {% if 'sochi' in siteurl %} selected {% endif %}>Сочи</option>
                             </select>
                         </div>
                         
