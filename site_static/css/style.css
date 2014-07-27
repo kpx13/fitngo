@@ -110,12 +110,18 @@ body {
 
 .homelink {
     display: block;
-    background: url(../img/logo.jpg) no-repeat 0 0;
-    width: 262px;
-    height: 99px;
+    height: 140px;
     margin-left: 45px;
     margin-top: 10px;
     top: 10px;
+    position: relative;
+}
+
+.homelink a {
+    background: url(../img/logo.jpg) no-repeat 0 0;
+    width: 262px;
+    height: 99px;
+    display: block;
     position: relative;
 }
 
