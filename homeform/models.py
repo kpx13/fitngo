@@ -14,5 +14,5 @@ class OrderH(models.Model):
         ordering = ['-request_date']
     
     def __unicode__(self):
-        return str(self.name)
+        return self.name
 

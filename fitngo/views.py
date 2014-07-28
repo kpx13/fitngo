@@ -91,6 +91,7 @@ def get_common_context(request):
         c['menu_cat'] = None
         
     c['siteurl'] = request.get_host().split('.')[0]
+    c['phone'] = config_value('MyApp', 'PHONE')
     c.update(csrf(request))
     return c
 
