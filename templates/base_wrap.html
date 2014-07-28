@@ -44,36 +44,36 @@
                     <div class="header__contacts">
                         
                         <span class="header__contacts__phone"> 
-                        <span class='soc_icons_top' style='padding: 0px; margin: 0px; height: 35px; margin-right: 15px'>
-			    <a href='http://instagram.com/fit_n_go_/' target='_blank'><img src='/static/img/instagram.png' style='width: 30px'></a>
-                            <a href='https://www.facebook.com/fitngo.ru' target='_blank'><img src='/static/img/facebook.png' style='width: 30px;'></a>
-                            <a href='http://www.youtube.com/channel/UClZjoXRWWU_Y9bd7rDzjtlw' target='_blank'><img src='/static/img/youtube_3.png' style='width: 30px'></a>
+                            <span class='soc_icons_top' style='padding: 0px; margin: 0px; height: 35px; margin-right: 15px'>
+                    <a href='http://instagram.com/fit_n_go_/' target='_blank'><img src='/static/img/instagram.png' style='width: 30px'></a>
+                                <a href='https://www.facebook.com/fitngo.ru' target='_blank'><img src='/static/img/facebook.png' style='width: 30px;'></a>
+                                <a href='http://www.youtube.com/channel/UClZjoXRWWU_Y9bd7rDzjtlw' target='_blank'><img src='/static/img/youtube_3.png' style='width: 30px'></a>
+                            </span>
+                            <span style='display: inline; position: relative; bottom: 10px'>+7(495) 969 88 69</span>
                         </span>
-                        +7(495) 969 88 69 </span>
-                        <span class="back form-btn btn-yellow" style='width: 220px; margin-left: 20px'><a href='/simplybook/'><input value="Записаться"  style='width: 220px' /></a></span>
-                        
+                        <span class="back form-btn btn-yellow" style='width: 220px; margin-left: 20px'><a href='/simplybook/'><input value="Записаться"  style='width: 220px' /></a></span>                        
+                        <br />
+                        <span style='font-size: 15px; margin-left: 130px; display: inline; position: relative; bottom: 10px'>
+                                Ваш город:
+                                <select id='region_select' style='background-color: white; width: 120px'>
+                                    <option value='www'>Москва</option>
+                                    <option value='ekb' {% if 'ekb' in siteurl %} selected {% endif %}>Екатеринбург</option>
+                                    <option value='tmn' {% if 'tmn' in siteurl %} selected {% endif %}>Тюмень</option>
+                                    <option value='pdl' {% if 'pdl' in siteurl %} selected {% endif %}>Подольск</option>
+                                    <option value='nvs' {% if 'nvs' in siteurl %} selected {% endif %}>Новосибирск</option>
+                                    <option value='sochi' {% if 'sochi' in siteurl %} selected {% endif %}>Сочи</option>
+                                </select>
+                            </span>
+                            
+                            <script>
+                                $('#region_select').change(function() {
+                                    sd = $('#region_select').val();
+                                    window.location.replace('http://' + sd + '.fit-n-go.ru/');
+                                })
+                            </script>
                     </div>
                     <div class="homelink">
                         <a href='/'></a>
-                        <div style='margin-left: 10px;'>
-                            Ваш город:
-                            <select id='region_select' style='background-color: white; width: 150px'>
-                                <option value='www'>Москва</option>
-                                <option value='ekb' {% if 'ekb' in siteurl %} selected {% endif %}>Екатеринбург</option>
-                                <option value='tmn' {% if 'tmn' in siteurl %} selected {% endif %}>Тюмень</option>
-                                <option value='pdl' {% if 'pdl' in siteurl %} selected {% endif %}>Подольск</option>
-                                <option value='nvs' {% if 'nvs' in siteurl %} selected {% endif %}>Новосибирск</option>
-                                <option value='sochi' {% if 'sochi' in siteurl %} selected {% endif %}>Сочи</option>
-                            </select>
-                        </div>
-			<br />
-                        
-                        <script>
-                            $('#region_select').change(function() {
-                                sd = $('#region_select').val();
-                                window.location.replace('http://' + sd + '.fit-n-go.ru/');
-                            })
-                        </script>
                     </div>
                 </header>
 		<br />
